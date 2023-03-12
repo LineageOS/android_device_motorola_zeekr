@@ -23,7 +23,7 @@ include device/motorola/sm8475-common/BoardConfigCommon.mk
 TARGET_BOOTLOADER_BOARD_NAME := zeekr
 
 # HIDL
-DEVICE_MANIFEST_CAPE_FILES += $(DEVICE_PATH)/manifests/manifest_zeekr.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifests/manifest_zeekr.xml
 ODM_MANIFEST_SKUS += dnp dn nep ne np n
 ODM_MANIFEST_DNP_FILES := $(DEVICE_PATH)/manifests/manifest_dn.xml
 ODM_MANIFEST_DN_FILES  := $(DEVICE_PATH)/manifests/manifest_dn.xml
