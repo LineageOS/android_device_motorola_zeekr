@@ -30,7 +30,7 @@ BOARD_SHIPPING_API_LEVEL := 31
 PRODUCT_SHIPPING_API_LEVEL := 31
 
 # Inherit from motorola sm8475-common
-$(call inherit-product, device/motorola/sm8475-common/sm8475.mk)
+$(call inherit-product, device/motorola/sm8475-common/common.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += \
