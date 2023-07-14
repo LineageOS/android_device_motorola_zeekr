@@ -34,6 +34,9 @@ PRODUCT_SHIPPING_API_LEVEL := 31
 $(call inherit-product, device/motorola/sm8475-common/sm8475.mk)
 
 # Overlay
+DEVICE_PACKAGE_OVERLAYS += \
+    $(LOCAL_PATH)/overlay-lineage
+
 PRODUCT_PACKAGES += \
     FrameworksResZeekr \
     LineageSystemUIZeekr \
