@@ -1,15 +1,16 @@
 # Bluetooth
-bluetooth.device.default_name=motorola edge 30 ultra
+bluetooth.device.default_name=motorola razr 40 ultra
 
 # Camera
-persist.vendor.camera.physical.num=4
+persist.vendor.camera.physical.num=3
 
 # Motorola
 ro.mot.build.customerid=global
 
 # Sensors
-persist.vendor.sensors.enable.mag_filter=true
-persist.vendor.sensors.mot_tap=true
 ro.vendor.sensors.glance_approach=false
 ro.vendor.sensors.mot_drop=true
+ro.vendor.sensors.front_light_compensate=true
+ro.vendor.sensors.back_light_compensate=true
+ro.vendor.sensors.mot_backlight=true
 persist.vendor.sensors.mot_tap=true

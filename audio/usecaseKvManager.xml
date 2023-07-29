@@ -830,6 +830,12 @@
                 <!-- DEVICEPP_RX - DEVICEPP_RX_VOICE_DEFAULT -->
                 <graph_kv key="0xAC000000" value="0xAC000005"/>
             </keys_and_values>
+            <keys_and_values StreamType="PAL_STREAM_VOICE_CALL" CustomConfig="TTY">
+                <!-- DEVICERX - USB_RX -->
+                <graph_kv key="0xA2000000" value="0xA2000005"/>
+                <!-- DEVICEPP_RX - DEVICEPP_RX_VOICE_TTY -->
+                <graph_kv key="0xAC000000" value="0xAC100004"/>
+            </keys_and_values>
         </devicepp>
         <!-- OUT Device Proxy DevicePPs -->
         <devicepp id="PAL_DEVICE_OUT_PROXY">
@@ -1032,6 +1038,12 @@
                 <!-- DEVICEPP_TX - DEVICEPP_TX_AUDIO_FLUENCE_SMECNS -->
                 <graph_kv key="0xAD000000" value="0xAD000002"/>
             </keys_and_values>
+            <keys_and_values StreamType="PAL_STREAM_DEEP_BUFFER" CustomConfig="nn-sm">
+                <!-- DEVICETX - BT_TX -->
+                <graph_kv key="0xA3000000" value="0xA3000002"/>
+                <!-- DEVICEPP_TX - DEVICEPP_TX_AUDIO_FLUENCE_NN_SM -->
+                <graph_kv key="0xAD000000" value="0xAD000016"/>
+            </keys_and_values>
             <keys_and_values StreamType="PAL_STREAM_VOICE_CALL">
                 <!-- DEVICETX - BT_TX -->
                 <graph_kv key="0xA3000000" value="0xA3000002"/>
@@ -1077,6 +1089,7 @@
                 <!-- DEVICEPP_TX - DEVICEPP_TX_VOICE_RECOGNITION -->
                 <graph_kv key="0xAD000000" value="0xAD000017"/>
             </keys_and_values>
+
         </devicepp>
         <!-- IN USB device and USB headset DevicePPs -->
         <devicepp id="PAL_DEVICE_IN_USB_DEVICE,PAL_DEVICE_IN_USB_HEADSET">
@@ -1087,8 +1100,8 @@
             <keys_and_values StreamType="PAL_STREAM_DEEP_BUFFER" CustomConfig="nn-sm">
                 <!-- DEVICETX - USB_TX -->
                 <graph_kv key="0xA3000000" value="0xA3000005"/>
-                <!-- DEVICEPP_TX - DEVICEPP_TX_AUDIO_FLUENCE_SMECNS -->
-                <graph_kv key="0xAD000000" value="0xAD000002"/>
+                <!-- DEVICEPP_TX - DEVICEPP_TX_AUDIO_FLUENCE_NN_SM -->
+                <graph_kv key="0xAD000000" value="0xAD000016"/>
             </keys_and_values>
             <keys_and_values StreamType="PAL_STREAM_VOICE_CALL">
                 <!-- DEVICETX - USB_TX -->
@@ -1100,9 +1113,15 @@
                 <!-- DEVICETX - USB_TX -->
                 <graph_kv key="0xA3000000" value="0xA3000005"/>
                 <!-- DEVICEPP_TX - DEVICEPP_TX_VOICE_TTY -->
-                <graph_kv key="0xAD000000" value="0xAD000008"/>
+                <graph_kv key="0xAD000000" value="0xAD000022"/>
             </keys_and_values>
             <keys_and_values StreamType="PAL_STREAM_VOIP_TX">
+                <!-- DEVICETX - USB_TX -->
+                <graph_kv key="0xA3000000" value="0xA3000005"/>
+                <!-- DEVICEPP_TX - DEVICEPP_TX_VOIP_FLUENCE_SMECNS -->
+                <graph_kv key="0xAD000000" value="0xAD000007"/>
+            </keys_and_values>
+            <keys_and_values StreamType="PAL_STREAM_VOIP_TX" CustomConfig="nn-sm">
                 <!-- DEVICETX - USB_TX -->
                 <graph_kv key="0xA3000000" value="0xA3000005"/>
                 <!-- DEVICEPP_TX - DEVICEPP_TX_VOIP_FLUENCE_NN_SM -->

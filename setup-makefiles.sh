@@ -8,7 +8,7 @@
 
 set -e
 
-export DEVICE=eqs
+export DEVICE=zeekr
 export DEVICE_COMMON=sm8475-common
 export VENDOR=motorola
 
