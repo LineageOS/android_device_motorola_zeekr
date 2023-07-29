@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2022 The LineageOS Project
+# Copyright (C) 2023 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,22 +18,21 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from eqs device
-$(call inherit-product, device/motorola/eqs/device.mk)
+# Inherit from zeekr device
+$(call inherit-product, device/motorola/zeekr/device.mk)
 
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-PRODUCT_NAME := lineage_eqs
-PRODUCT_DEVICE := eqs
+PRODUCT_NAME := lineage_zeekr
+PRODUCT_DEVICE := zeekr
 PRODUCT_MANUFACTURER := motorola
 PRODUCT_BRAND := motorola
-PRODUCT_MODEL := motorola edge 30 ultra
+PRODUCT_MODEL := motorola razr 40 ultra
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    TARGET_PRODUCT=eqs_ge \
-    PRIVATE_BUILD_DESC="eqs_ge-user 13 T1SQS33.15-11-137-10-2 71a49-f5e7b6 release-keys"
+    TARGET_PRODUCT=zeekr_g
 
-BUILD_FINGERPRINT := motorola/eqs_ge/msi:13/T1SQS33.15-11-137-10-2/71a49-f5e7b6:user/release-keys
+BUILD_FINGERPRINT := motorola/zeekr_g/msi:13/T1TZ33M.3-62-9/b03d7b:user/release-keys

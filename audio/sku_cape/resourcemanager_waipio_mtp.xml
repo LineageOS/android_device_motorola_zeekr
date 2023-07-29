@@ -68,7 +68,9 @@
         <param key="max_sessions" value="128"/>
         <param key="max_nonTunnel_sessions" value="4"/>
         <param key="logging_level" value ="7" />
-        <param key="context_manager_enable" value ="false" />
+        <param key="context_manager_enable" value ="true" />
+        <param key="lpi_logging_enable" value ="false" />
+        <param key="upd_dedicated_be" value ="true" />
         <param key="signal_handler" value ="true" />
     </config_params>
     <config_volume>
@@ -125,7 +127,7 @@
         <in-device>
             <id>PAL_DEVICE_IN_HANDSET_MIC</id>
             <back_end_name>CODEC_DMA-LPAIF_RXTX-TX-3</back_end_name>
-            <max_channels>2</max_channels>
+            <max_channels>3</max_channels>
             <channels>1</channels>
             <samplerate>48000</samplerate>
             <bit_width>16</bit_width>
@@ -147,16 +149,16 @@
                 <priority>2</priority>
                 <sidetone_mode>HW</sidetone_mode>
                 <bit_width>16</bit_width>
-                <channels>2</channels>
-                <snd_device_name>handset-dmic-endfire</snd_device_name>
+                <channels>3</channels>
+                <snd_device_name>handset-tmic</snd_device_name>
             </usecase>
             <usecase>
                 <name>PAL_STREAM_VOICE_CALL</name>
                 <priority>1</priority>
                 <sidetone_mode>HW</sidetone_mode>
                 <bit_width>16</bit_width>
-                <channels>2</channels>
-                <snd_device_name>handset-dmic-endfire</snd_device_name>
+                <channels>3</channels>
+                <snd_device_name>handset-tmic</snd_device_name>
             </usecase>
             <usecase>
                 <name>PAL_STREAM_ULTRA_LOW_LATENCY</name>
@@ -189,7 +191,7 @@
         <in-device>
             <id>PAL_DEVICE_IN_SPEAKER_MIC</id>
             <back_end_name>CODEC_DMA-LPAIF_RXTX-TX-3</back_end_name>
-            <max_channels>2</max_channels>
+            <max_channels>3</max_channels>
             <samplerate>48000</samplerate>
             <bit_width>16</bit_width>
             <channels>1</channels>
@@ -209,20 +211,14 @@
             <usecase>
                 <name>PAL_STREAM_VOIP_TX</name>
                 <priority>2</priority>
-                <channels>2</channels>
-                <snd_device_name>speaker-dmic-endfire</snd_device_name>
-                <custom-config key="game_mic">
-                    <snd_device_name>game-mic</snd_device_name>
-                </custom-config>
-                <custom-config key="game_mic_nn-sm">
-                    <snd_device_name>game-mic</snd_device_name>
-                </custom-config>
+                <channels>3</channels>
+                <snd_device_name>speaker-tmic</snd_device_name>
             </usecase>
             <usecase>
                 <name>PAL_STREAM_VOICE_CALL</name>
                 <priority>1</priority>
-                <channels>2</channels>
-                <snd_device_name>speaker-dmic-endfire</snd_device_name>
+                <channels>3</channels>
+                <snd_device_name>speaker-tmic</snd_device_name>
                 <sidetone_mode>OFF</sidetone_mode>
             </usecase>
             <usecase>
@@ -344,8 +340,8 @@
             <ec_rx_device>
                 <id>PAL_DEVICE_OUT_WIRED_HEADSET</id>
                 <id>PAL_DEVICE_OUT_WIRED_HEADPHONE</id>
-                <id>PAL_DEVICE_OUT_BLUETOOTH_A2DP</id>
                 <id>PAL_DEVICE_OUT_LINE</id>
+                <id>PAL_DEVICE_OUT_BLUETOOTH_A2DP</id>
             </ec_rx_device>
         </in-device>
         <in-device>
@@ -499,6 +495,11 @@
                 <priority>1</priority>
                 <samplerate>96000</samplerate>
             </usecase>
+            <usecase>
+                <name>PAL_STREAM_PCM_OFFLOAD</name>
+                <priority>4</priority>
+                <samplerate>48000</samplerate>
+            </usecase>
         </out-device>
         <out-device>
             <id>PAL_DEVICE_OUT_HANDSET</id>
@@ -514,8 +515,7 @@
             <handset_protection_enabled>0</handset_protection_enabled>
           <usecase>
               <name>PAL_STREAM_VOICE_CALL</name>
-              <channels>1</channels>
-              <priority>1</priority>
+              <priority>2</priority>
               <snd_device_name>voice-handset</snd_device_name>
               <custom-config key="HAC">
                  <snd_device_name>voice-handset-hac</snd_device_name> <!-- override sound device name with HAC handset -->
@@ -532,7 +532,7 @@
           </usecase>
           <usecase>
               <name>PAL_STREAM_ULTRASOUND</name>
-              <priority>2</priority>
+              <priority>1</priority>
               <samplerate>96000</samplerate>
           </usecase>
         </out-device>
