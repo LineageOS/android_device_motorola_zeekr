@@ -126,7 +126,7 @@ f_fs_ipc_log.ko
 ucsi_glink.ko
 repeater.ko
 repeater-i2c-eusb2.ko
-gpio_keys.ko
+gpio_keys_swap.ko
 pm8941-pwrkey.ko
 qcom-hv-haptics.ko
 i2c-msm-geni.ko
