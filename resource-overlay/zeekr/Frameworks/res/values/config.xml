@@ -184,6 +184,13 @@
 
     <bool name="config_maskSecondaryBuiltInDisplayCutout">true</bool>
 
+    <integer-array name="config_secondaryBuiltInDisplayCutoutSideOverride">
+        <item>3</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </integer-array>
+
 	<!-- Indicate whether to allow the device to suspend when the screen is off
          due to the proximity sensor.  This resource should only be set to true
          if the sensor HAL correctly handles the proximity sensor as a wake-up source.
@@ -324,4 +331,80 @@
         <item>20</item> <!--item>sensorLocationY</item-->
         <item>110</item> <!--item>sensorRadius</item-->
     </array>
+
+    <!-- Control whether the pickup gesture is enabled by default. This value will be used
+     during initialization when the setting is still null. -->
+    <bool name="config_dozePickupGestureEnabled">false</bool>
+
+    <!-- Indicates whether to enable an animation when unfolding a device or not -->
+    <bool name="config_unfoldTransitionEnabled">true</bool>
+
+    <!-- Indicates whether to enable hinge angle sensor when using unfold animation -->
+    <bool name="config_unfoldTransitionHingeAngle">true</bool>
+
+    <!-- When true, local displays that do not contain any of their own content will automatically
+         mirror the content of the default display. -->
+    <bool name="config_localDisplaysMirrorContent">false</bool>
+
+    <bool name="config_supportsConcurrentInternalDisplays">false</bool>
+
+    <string-array name="config_displayUniqueIdArray" translatable="false">
+        <item>"local:4630947043778501762"</item>
+        <item>"local:4630947043778501763"</item>
+    </string-array>
+
+    <!-- WindowsManager JetPack display features -->
+    <string name="config_display_features" translatable="false">fold-[0,1320,1080,1320]</string>
+
+    <!-- Map of System DeviceState supplied by DeviceStateManager to WM Jetpack posture. Must be in
+         the format [System DeviceState]:[WM Jetpack Posture], for example: "0:1". -->
+    <array name="config_device_state_postures">
+        <item>0:1</item>
+        <item>1:2</item>
+        <item>2:3</item>
+        <item>3:1</item>
+    </array>
+
+    <!-- The device states (supplied by DeviceStateManager) that should be treated as open by the
+         device fold controller. Default is empty. -->
+    <integer-array name="config_openDeviceStates">
+        <item>2</item>
+    </integer-array>
+
+    <!-- The device states (supplied by DeviceStateManager) that should be treated as folded by the
+         display fold controller. Default is empty. -->
+    <integer-array name="config_foldedDeviceStates">
+        <item>0</item>
+    </integer-array>
+
+    <!-- The device states (supplied by DeviceStateManager) that should be treated as half-folded by
+     the display fold controller. Default is empty. -->
+    <integer-array name="config_halfFoldedDeviceStates">
+        <item>1</item>
+    </integer-array>
+
+    <!-- When a device enters any of these states, it should be woken up. States are defined in
+         device_state_configuration.xml. -->
+    <integer-array name="config_deviceStatesOnWhichToWakeUp">
+        <item>1</item>
+        <item>2</item>
+    </integer-array>
+
+    <!-- When a device enters any of these states, it should go to sleep. States are defined in
+         device_state_configuration.xml. -->
+    <integer-array name="config_deviceStatesOnWhichToSleep">
+        <item>0</item>
+    </integer-array>
+
+    <!-- The device states (supplied by DeviceStateManager) that should be treated as a rear display
+     state. Default is empty. -->
+    <integer-array name="config_rearDisplayDeviceStates">
+        <item>3</item>
+    </integer-array>
+
+    <!-- Device state that corresponds to rear display mode, feature provided
+         through Jetpack WindowManager
+         TODO(b/236022708) Move rear display state to device state config file
+    -->
+    <integer name="config_deviceStateRearDisplay">3</integer>
 </resources>
