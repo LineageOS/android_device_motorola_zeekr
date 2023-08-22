@@ -1,0 +1,53 @@
+<device-state-config>
+  <device-state>
+    <identifier>0</identifier>
+    <name>CLOSED</name>
+    <flags>
+      <flag>FLAG_CANCEL_OVERRIDE_REQUESTS</flag>
+    </flags>
+    <conditions>
+      <sensor>
+        <type>com.motorola.sensor.hall</type>
+        <name>Flip Hall Effect Wakeup</name>
+        <value>
+          <min-inclusive>2</min-inclusive>
+          <max-inclusive>2</max-inclusive>
+        </value>
+      </sensor>
+      <sensor>
+        <type>android.sensor.hinge_angle</type>
+        <name>Hinge Angle  Wakeup</name>
+        <value>
+          <min-inclusive>0</min-inclusive>
+          <max>5</max>
+        </value>
+      </sensor>
+    </conditions>
+  </device-state>
+  <device-state>
+    <identifier>1</identifier>
+    <name>HALF_OPENED</name>
+    <conditions>
+      <sensor>
+        <type>android.sensor.hinge_angle</type>
+        <name>Hinge Angle  Wakeup</name>
+        <value>
+          <min-inclusive>5</min-inclusive>
+          <max-inclusive>120</max-inclusive>
+        </value>
+      </sensor>
+    </conditions>
+  </device-state>
+  <device-state>
+    <identifier>2</identifier>
+    <name>OPENED</name>
+  </device-state>
+
+  <device-state>
+    <identifier>3</identifier>
+    <name>REAR_DISPLAY_STATE</name>
+    <flags>
+      <flag>FLAG_EMULATED_ONLY</flag>
+    </flags>
+  </device-state>
+</device-state-config>
