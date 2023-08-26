@@ -70,5 +70,8 @@ TARGET_RECOVERY_UI_MARGIN_HEIGHT := 90
 # Security
 VENDOR_SECURITY_PATCH := 2023-05-01
 
+# SELinux
+BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+
 # inherit from the proprietary version
 include vendor/motorola/zeekr/BoardConfigVendor.mk
