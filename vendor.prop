@@ -9,9 +9,6 @@ vendor.audio.max.temp=60.0
 # Camera
 persist.vendor.camera.physical.num=3
 
-# Motorola
-ro.mot.build.customerid=global
-
 # Sensors
 ro.vendor.sensors.glance_approach=false
 ro.vendor.sensors.mot_drop=true
