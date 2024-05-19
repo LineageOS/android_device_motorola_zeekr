@@ -16,8 +16,3 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_zeekr.mk
-
-COMMON_LUNCH_CHOICES := \
-    lineage_zeekr-user \
-    lineage_zeekr-userdebug \
-    lineage_zeekr-eng
