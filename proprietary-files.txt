@@ -59,7 +59,7 @@ vendor/lib64/libSnpeHtpV69Stub.so
 vendor/lib64/liba2d_helper.so
 vendor/lib64/libaidenoiser.so
 vendor/lib64/libaidenoiserv2.so
-vendor/lib64/libancbase_rt_fusion.so
+vendor/lib64/libancbase_rt_fusion.so;FIX_SONAME
 vendor/lib64/libarcsoft_chi_utils.so
 vendor/lib64/libarcsoft_distortion_correction.so
 vendor/lib64/libarcsoft_dual_sat.so
