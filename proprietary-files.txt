@@ -108,7 +108,6 @@ vendor/lib64/libopencv3a.so
 vendor/lib64/libopestriping.so
 vendor/lib64/libos.so
 vendor/lib64/libportrait_repair_ppl3_ocl.so
-vendor/lib64/libportrait_repair_ppl3_ocl.so
 vendor/lib64/libqll.so
 vendor/lib64/libqll10.so
 vendor/lib64/libqllengine.so
@@ -334,8 +333,8 @@ vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service-fpc
 vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service-fpc.rc
 
 # HotwordEnrollment
--product/priv-app/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND.apk
--product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk
+product/priv-app/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND.apk
+product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk
 system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
 system_ext/framework/com.android.hotwordenrollment.common.util.jar
 
@@ -351,7 +350,7 @@ product/etc/permissions/deviceowner-configuration-com.motorola.camera3.xml
 product/etc/permissions/privapp-permissions-com.motorola.camera3.xml
 product/etc/sysconfig/hiddenapi-whitelist-com.motorola.camera3.xml
 product/priv-app/MotCamera4/MotCamera4.apk;PRESIGNED
--system/app/MotoSignatureApp/MotoSignatureApp.apk;PRESIGNED
+system/app/MotoSignatureApp/MotoSignatureApp.apk;PRESIGNED
 system/etc/permissions/com.motorola.motosignature.xml
 system/etc/permissions/moto-core_services.xml
 system/etc/permissions/moto-settings.xml
@@ -359,7 +358,7 @@ system/framework/com.motorola.motosignature.jar
 system/framework/moto-core_services.jar
 system/framework/moto-settings.jar
 system_ext/bin/motsettings
--system_ext/priv-app/MotorolaSettingsProvider/MotorolaSettingsProvider.apk
+system_ext/priv-app/MotorolaSettingsProvider/MotorolaSettingsProvider.apk
 
 # Moto Permissions
 product/etc/permissions/com.motorola.camera3.xml:vendor/etc/permissions/com.motorola.camera3.xml
