@@ -35,6 +35,6 @@ PRODUCT_MODEL := motorola razr 40 ultra
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    TARGET_PRODUCT=zeekr_g
-
-BUILD_FINGERPRINT := motorola/zeekr_g/msi:14/U3TZ34M.2-75-5/ee4b9d:user/release-keys
+    DeviceProduct=zeekr_g \
+    BuildDesc="zeekr_g-user 14 U3TZ34M.2-75-5 ee4b9d release-keys" \
+    BuildFingerprint=motorola/zeekr_g/msi:14/U3TZ34M.2-75-5/ee4b9d:user/release-keys
