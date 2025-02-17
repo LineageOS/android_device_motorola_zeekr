@@ -328,6 +328,14 @@ vendor/etc/display/qdcm_calib_data_nt36672e_lcd_video_mode_dsi_novatek_panel_wit
 vendor/etc/display/qdcm_calib_data_nt36672e_lcd_video_mode_dsi_novatek_panel_without_DSC.json
 vendor/etc/display/qdcm_merge_rules_mipi_mot_cmd_csot_1080p_dsc_667.json
 
+# Ese Powermanagement
+vendor/bin/hw/vendor.qti.esepowermanager@1.1-service
+vendor/etc/init/vendor.qti.esepowermanager@1.1-service.rc
+vendor/lib64/hw/vendor.qti.esepowermanager@1.1-impl.so
+vendor/lib64/libesesbprovision.so
+vendor/lib64/vendor.qti.esepowermanager@1.0.so
+vendor/lib64/vendor.qti.esepowermanager@1.1.so
+
 # Fingerprint
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service-fpc
 vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service-fpc.rc
@@ -397,6 +405,13 @@ vendor/lib/libsn220u_fw.so
 vendor/lib64/libpn560_fw.so
 vendor/lib64/libsn100u_fw.so
 vendor/lib64/libsn220u_fw.so
+
+# Secure Element
+vendor/bin/hw/vendor.qti.secure_element@1.2-service
+vendor/etc/init/vendor.qti.secure_element@1.2-service.rc
+vendor/lib64/android.hardware.secure_element@1.0-impl.so
+vendor/lib64/jcos_nq_client.so
+vendor/lib64/ls_nq_client.so
 
 # Sensors
 vendor/bin/hw/motorola.hardware.sensorext-service
