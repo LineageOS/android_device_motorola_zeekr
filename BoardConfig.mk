@@ -25,11 +25,11 @@ TARGET_BOOTLOADER_BOARD_NAME := zeekr
 # HIDL
 DEVICE_MANIFEST_CAPE_FILES += $(DEVICE_PATH)/manifests/manifest_zeekr.xml
 ODM_MANIFEST_SKUS += dnp dn nep ne np n
-ODM_MANIFEST_DNP_FILES := $(DEVICE_PATH)/manifests/manifest_dnp.xml
+ODM_MANIFEST_DNP_FILES := $(DEVICE_PATH)/manifests/manifest_dn.xml
 ODM_MANIFEST_DN_FILES  := $(DEVICE_PATH)/manifests/manifest_dn.xml
-ODM_MANIFEST_NEP_FILES := $(DEVICE_PATH)/manifests/manifest_nep.xml $(COMMON_PATH)/manifest_cape_ss.xml
+ODM_MANIFEST_NEP_FILES := $(DEVICE_PATH)/manifests/manifest_ne.xml $(COMMON_PATH)/manifest_cape_ss.xml
 ODM_MANIFEST_NE_FILES  := $(DEVICE_PATH)/manifests/manifest_ne.xml $(COMMON_PATH)/manifest_cape_ss.xml
-ODM_MANIFEST_NP_FILES  := $(DEVICE_PATH)/manifests/manifest_np.xml $(COMMON_PATH)/manifest_cape_ss.xml
+ODM_MANIFEST_NP_FILES  := $(DEVICE_PATH)/manifests/manifest_n.xml $(COMMON_PATH)/manifest_cape_ss.xml
 ODM_MANIFEST_N_FILES   := $(DEVICE_PATH)/manifests/manifest_n.xml $(COMMON_PATH)/manifest_cape_ss.xml
 
 # Kernel
