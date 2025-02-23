@@ -1,5 +1,8 @@
 # Moto
 ro.vendor.product.display=motorola razr 40 ultra
 
+# Google
+ro.opa.device_model_id=motorola-zeekr
+
 # Radio
 ro.vendor.radio.imei.sv=45
