@@ -1,4 +1,4 @@
 runtime_resource_overlay {
-    name: "FrameworksResZeekr",
+    name: "SystemUIResDevice",
     vendor: true
 }
