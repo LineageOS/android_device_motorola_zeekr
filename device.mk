@@ -87,5 +87,19 @@ PRODUCT_COPY_FILES += \
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
 
+# VINTF
+DEVICE_MANIFEST_FILE += device/motorola/zeekr/vintf/manifest.xml
+ODM_MANIFEST_SKUS += dnp dn nep ne np n
+ODM_MANIFEST_DNP_FILES := $(LOCAL_PATH)/vintf/manifest_dn.xml
+ODM_MANIFEST_DN_FILES  := $(LOCAL_PATH)/vintf/manifest_dn.xml
+ODM_MANIFEST_NEP_FILES := $(LOCAL_PATH)/vintf/manifest_ne.xml \
+    device/motorola/sm8475-common/vintf/manifest_ss.xml
+ODM_MANIFEST_NE_FILES  := $(LOCAL_PATH)/vintf/manifest_ne.xml \
+    device/motorola/sm8475-common/vintf/manifest_ss.xml
+ODM_MANIFEST_NP_FILES  := $(LOCAL_PATH)/vintf/manifest_n.xml \
+    device/motorola/sm8475-common/vintf/manifest_ss.xml
+ODM_MANIFEST_N_FILES   := $(LOCAL_PATH)/vintf/manifest_n.xml \
+    device/motorola/sm8475-common/vintf/manifest_ss.xml
+
 # Inherit from vendor blobs
 $(call inherit-product, vendor/motorola/zeekr/zeekr-vendor.mk)
