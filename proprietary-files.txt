@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from 14-U3TZ34.2-75-5 76d043-ee4b9d release-keys.
+# All unpinned blobs below are extracted from 15-V1TZS35H.41-21-3-11 516907-41be73 release-keys.
 
 # ACDB Data
 vendor/etc/acdbdata/waipio_mtp/MTP_acdb_cal.acdb
@@ -285,6 +285,7 @@ vendor/lib64/com.qti.feature2.serializer.so
 vendor/lib64/com.qti.feature2.statsregeneration.so
 vendor/lib64/com.qti.feature2.stub.so
 vendor/lib64/com.qti.feature2.swmf.so
+vendor/lib64/com.qti.feature2.swmfsr.so
 
 # Camera - OIS
 vendor/firmware/mot_dw9784.prog
