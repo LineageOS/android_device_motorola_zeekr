@@ -36,5 +36,5 @@ PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     DeviceProduct=zeekr_g \
-    BuildDesc="zeekr_g-user 14 U3TZ34M.2-75-5 ee4b9d release-keys" \
-    BuildFingerprint=motorola/zeekr_g/msi:14/U3TZ34M.2-75-5/ee4b9d:user/release-keys
+    BuildDesc="zeekr_g-user 15 V1TZS35H.41-21-3-11 516907-41be73 release-keys" \
+    BuildFingerprint=motorola/zeekr_g/zeekr:15/V1TZS35H.41-21-3-11/516907-41be73:user/release-keys
