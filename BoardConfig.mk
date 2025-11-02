@@ -23,14 +23,14 @@ include device/motorola/sm8475-common/BoardConfigCommon.mk
 TARGET_BOOTLOADER_BOARD_NAME := zeekr
 
 # HIDL
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifests/manifest_zeekr.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifests/manifest.xml
 ODM_MANIFEST_SKUS += dnp dn nep ne np n
-ODM_MANIFEST_DNP_FILES := $(DEVICE_PATH)/manifests/manifest_dn.xml
-ODM_MANIFEST_DN_FILES  := $(DEVICE_PATH)/manifests/manifest_dn.xml
-ODM_MANIFEST_NEP_FILES := $(DEVICE_PATH)/manifests/manifest_ne.xml $(COMMON_PATH)/manifest_ss.xml
-ODM_MANIFEST_NE_FILES  := $(DEVICE_PATH)/manifests/manifest_ne.xml $(COMMON_PATH)/manifest_ss.xml
-ODM_MANIFEST_NP_FILES  := $(DEVICE_PATH)/manifests/manifest_n.xml $(COMMON_PATH)/manifest_ss.xml
-ODM_MANIFEST_N_FILES   := $(DEVICE_PATH)/manifests/manifest_n.xml $(COMMON_PATH)/manifest_ss.xml
+ODM_MANIFEST_DNP_FILES := $(DEVICE_PATH)/vintf/manifest_dn.xml
+ODM_MANIFEST_DN_FILES  := $(DEVICE_PATH)/vintf/manifest_dn.xml
+ODM_MANIFEST_NEP_FILES := $(DEVICE_PATH)/vintf/manifest_ne.xml $(COMMON_PATH)/manifest_ss.xml
+ODM_MANIFEST_NE_FILES  := $(DEVICE_PATH)/vintf/manifest_ne.xml $(COMMON_PATH)/manifest_ss.xml
+ODM_MANIFEST_NP_FILES  := $(DEVICE_PATH)/vintf/manifest_n.xml $(COMMON_PATH)/manifest_ss.xml
+ODM_MANIFEST_N_FILES   := $(DEVICE_PATH)/vintf/manifest_n.xml $(COMMON_PATH)/manifest_ss.xml
 
 # Kernel
 TARGET_KERNEL_CONFIG += \
