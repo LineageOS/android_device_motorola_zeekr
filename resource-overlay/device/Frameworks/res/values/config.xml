@@ -1,10 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2022 The LineageOS Project
+     SPDX-FileCopyrightText: The LineageOS Project
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
-    <!-- Array of light sensor LUX values to define our levels for auto backlight brightness support.
+    <!-- Indicate available ColorDisplayManager.COLOR_MODE_xxx. -->
+    <integer-array name="config_availableColorModes">
+        <item>0</item> <!-- COLOR_MODE_NATURAL -->     <!-- This uses colorimetric render intents-->
+        <item>1</item> <!-- COLOR_MODE_BOOSTED -->     <!-- This applies a 10% boost using the PCC-->
+        <item>2</item> <!-- COLOR_MODE_SATURATED -->
+        <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->   <!-- This uses enhanced render intents-->
+    </integer-array>
+
+    <!-- Indicate whether to allow the device to suspend when the screen is off
+         due to the proximity sensor.  This resource should only be set to true
+         if the sensor HAL correctly handles the proximity sensor as a wake-up source.
+         Otherwise, the device may fail to wake out of suspend reliably.
+         The default is false. -->
+    <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>
+
+    <!-- Note: This setting is deprecated, please use
+    config_screenBrightnessSettingMinimumFloat instead -->
+    <integer name="config_screenBrightnessSettingMinimum">1</integer>
+
+    <!-- Minimum screen brightness setting allowed by power manager.
+         -2 is invalid so setting will resort to int value specified above.
+         Set this to 0.0 to allow screen to go to minimal brightness.
+         The user is forbidden from setting the brightness below this level. -->
+    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.026506964</item>
+
+    <!-- Maximum screen brightness allowed by the power manager.
+         -2 is invalid so setting will resort to int value specified above.
+         Set this to 1.0 for maximum brightness range.
+         The user is forbidden from setting the brightness above this level. -->
+    <item name="config_screenBrightnessSettingMaximumFloat" format="float" type="dimen">1.0</item>
+
+    <!-- Default screen brightness setting set.
+         -2 is invalid so setting will resort to int value specified above.
+         Must be in the range specified by minimum and maximum. -->
+    <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.38188976</item>
+
+    <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
+         for debouncing the light sensor.  Different constants are used to debounce the light sensor
+         when adapting to brighter or darker environments.  This parameter controls how quickly
+         brightness changes occur in response to an observed change in light level that exceeds the
+         hysteresis threshold. -->
+    <integer name="config_autoBrightnessBrighteningLightDebounce">500</integer>
+    <integer name="config_autoBrightnessDarkeningLightDebounce">500</integer>
+
+    <!-- Screen brightness used to dim the screen when the user activity
+         timeout expires.  May be less than the minimum allowed brightness setting
+         that can be set by the user. -->
+    <integer name="config_screenBrightnessDim">1</integer>
+
+    <!-- Array of light sensor lux values to define our levels for auto backlight brightness support.
          The N entries of this array define N + 1 control points as follows:
          (1-based arrays)
 
@@ -16,12 +65,12 @@
 
          The control points must be strictly increasing.  Each control point
          corresponds to an entry in the brightness backlight values arrays.
-         For example, if LUX == level[1] (first element of the levels array)
+         For example, if lux == level[1] (first element of the levels array)
          then the brightness will be determined by value[2] (second element
          of the brightness values array).
 
          Spline interpolation is used to determine the auto-brightness
-         backlight values for LUX levels between these control points.
+         backlight values for lux levels between these control points.
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
@@ -41,8 +90,7 @@
     </integer-array>
 
     <!-- Array of desired screen brightness in nits corresponding to the lux values
-         in the config_autoBrightnessLevels array. As with config_screenBrightnessMinimumNits and
-         config_screenBrightnessMaximumNits, the display brightness is defined as the measured
+         in the config_autoBrightnessLevels array. The display brightness is defined as the measured
          brightness of an all-white image.
 
          If this is defined then:
@@ -53,7 +101,7 @@
          This array should have size one greater than the size of the config_autoBrightnessLevels
          array. The brightness values must be non-negative and non-decreasing. This must be
          overridden in platform specific overlays -->
-    <integer-array name="config_autoBrightnessDisplayValuesNits">
+    <array name="config_autoBrightnessDisplayValuesNits">
         <item>3</item>
         <item>7</item>
         <item>10</item>
@@ -68,7 +116,7 @@
         <item>700</item>
         <item>800</item>
         <item>1000</item>
-    </integer-array>
+    </array>
 
     <!-- An array describing the screen's backlight values corresponding to the brightness
          values in the config_screenBrightnessNits array.
@@ -98,7 +146,7 @@
          brightness modes but only the maximum brightness value obtainable in a sustainable manner.
 
          This array should be equal in size to config_screenBrightnessBacklight -->
-    <integer-array name="config_screenBrightnessNits">
+    <array name="config_screenBrightnessNits">
         <item>3</item>
         <item>7</item>
         <item>10</item>
@@ -113,83 +161,34 @@
         <item>700</item>
         <item>800</item>
         <item>1000</item>
-    </integer-array>
+    </array>
 
-    <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
-         for debouncing the light sensor.  Different constants are used to debounce the light sensor
-         when adapting to brighter or darker environments.  This parameter controls how quickly
-         brightness changes occur in response to an observed change in light level that exceeds the
-         hysteresis threshold. -->
-    <integer name="config_autoBrightnessBrighteningLightDebounce">500</integer>
-    <integer name="config_autoBrightnessDarkeningLightDebounce">500</integer>
+    <!-- MMS user agent string, for example OemNameDeviceName
+         If the string contains a '%s' format string then that substring will be replaced
+         with the value of Build.MODEL , ie
+         <string name="config_mms_user_agent">OemName%s</string> -->
+    <string name="config_mms_user_agent" translatable="false">motorolarazr40ultra</string>
 
-    <!-- The bounding path of the cutout region of the main built-in display.
-         Must either be empty if there is no cutout region, or a string that is parsable by
-         {@link android.util.PathParser}.
+    <!-- MMS user agent prolfile url, for example https://uaprof.oem_name.com/DeviceName.xml
+         if the string contains a '%s' format string then that substring will be replaced
+         with the value of Build.MODEL , ie https://uaprof.oem_name.com/%s.xml -->
+    <string name="config_mms_user_agent_profile_url" translatable="false">http://uaprof.motorola.com/phoneconfig/motov1/Profile/motov1.rdf</string>
 
-         The path is assumed to be specified in display coordinates with pixel units and in
-         the display's native orientation, with the origin of the coordinate system at the
-         center top of the display. Optionally, you can append either `@left` or `@right` to the
-         end of the path string, in order to change the path origin to either the top left,
-         or top right of the display.
+    <!-- If true, the doze component is not started until after the screen has been
+         turned off and the screen off animation has been performed. -->
+    <bool name="config_dozeAfterScreenOffByDefault">true</bool>
 
-         To facilitate writing device-independent emulation overlays, the marker `@dp` can be
-         appended after the path string to interpret coordinates in dp instead of px units.
-         Note that a physical cutout should be configured in pixels for the best results.
+    <!-- Type of the double tap sensor. Empty if double tap is not supported. -->
+    <string name="config_dozeDoubleTapSensorType" translatable="false">org.lineageos.sensor.double_tap</string>
 
-         Example for a 10px x 10px square top-center cutout:
-                <string ...>M -5,0 L -5,10 L 5,10 L 5,0 Z</string>
-         Example for a 10dp x 10dp square top-center cutout:
-                <string ...>M -5,0 L -5,10 L 5,10 L 5,0 Z @dp</string>
+    <!-- Control whether the always on display mode is available. This should only be enabled on
+         devices where the display has been tuned to be power efficient in DOZE and/or DOZE_SUSPEND
+         states. -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
 
-         @see https://www.w3.org/TR/SVG/paths.html#PathData
-         -->
-    <string translatable="false" name="config_mainBuiltInDisplayCutout">
-        M -45,54
-        a 45,45 0 0 1 90,0
-        a 45,45 0 0 1 -90,0
-        Z
-    </string>
-
-    <string translatable="false" name="config_mainBuiltInDisplayCutoutRectApproximation">
-        M -45,0
-        L 45,0
-        L 45,108
-        L -45,108
-        Z
-    </string>
-
-    <string translatable="false" name="config_secondaryBuiltInDisplayCutout">
-        M 483,930
-        a 45,45 0 0 1 90,0
-        a 45,45 0 0 1 -90,0
-        M 596,920
-        a 106,106 0 0 1 212,0
-        a 106,106 0 0 1 -212,0
-        M 812,920
-        a 106,106 0 0 1 212,0
-        a 106,106 0 0 1 -212,0
-        Z
-        @left
-    </string>
-
-    <string translatable="false" name="config_secondaryBuiltInDisplayCutoutRectApproximation">
-        M 480,800
-        L 1056,800
-        L 1056,1068
-        L 480,1068
-        Z
-        @left
-    </string>
-
-    <bool name="config_maskSecondaryBuiltInDisplayCutout">true</bool>
-
-	<!-- Indicate whether to allow the device to suspend when the screen is off
-         due to the proximity sensor.  This resource should only be set to true
-         if the sensor HAL correctly handles the proximity sensor as a wake-up source.
-         Otherwise, the device may fail to wake out of suspend reliably.
-         The default is false. -->
-    <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>
+    <!-- Control whether the always on display mode is enabled by default. This value will be used
+         during initialization when the setting is still null. -->
+    <bool name="config_dozeAlwaysOnEnabled">false</bool>
 
     <!-- Power Management: Specifies whether to decouple the auto-suspend state of the
          device from the display on/off state.
@@ -211,14 +210,6 @@
     -->
     <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool>
 
-    <!-- List of biometric sensors on the device, in decreasing strength. Consumed by AuthService
-         when registering authenticators with BiometricService. Format must be ID:Modality:Strength,
-         where: IDs are unique per device, Modality as defined in BiometricAuthenticator.java,
-         and Strength as defined in Authenticators.java -->
-    <array name="config_biometric_sensors" translatable="false" >
-        <item>0:2:15</item> <!-- ID0:Fingerprint:Strong -->
-    </array>
-
     <!-- Power Management: Specifies whether to decouple the interactive state of the
          device from the display on/off state.
 
@@ -238,27 +229,39 @@
     -->
     <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
 
-    <!-- Screen brightness used to dim the screen when the user activity
-         timeout expires.  May be less than the minimum allowed brightness setting
-         that can be set by the user. -->
-    <integer name="config_screenBrightnessDim">1</integer>
+    <!-- The bounding path of the cutout region of the main built-in display.
+         Must either be empty if there is no cutout region, or a string that is parsable by
+         {@link android.util.PathParser}.
 
-    <!-- Minimum screen brightness setting allowed by the power manager.
-         The user is forbidden from setting the brightness below this level. -->
-    <integer name="config_screenBrightnessSettingMinimum">1</integer>
+         The path is assumed to be specified in display coordinates with pixel units and in
+         the display's native orientation, with the origin of the coordinate system at the
+         center top of the display. Optionally, you can append either `@left` or `@right` to the
+         end of the path string, in order to change the path origin to either the top left,
+         or top right of the display.
 
-    <!-- If true, the doze component is not started until after the screen has been
-         turned off and the screen off animation has been performed. -->
-    <bool name="config_dozeAfterScreenOffByDefault">true</bool>
+         To facilitate writing device-independent emulation overlays, the marker `@dp` can be
+         appended after the path string to interpret coordinates in dp instead of px units.
+         Note that a physical cutout should be configured in pixels for the best results.
 
-    <!-- Whether the always on display mode is available. This should only be enabled
-         on devices where the display has been tuned to be power efficient in DOZE and/or
-         DOZE_SUSPEND states. -->
-    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+         If the display supports multiple resolutions, please define the path config based on the
+         highest resolution so that it can be scaled correctly in each resolution.
 
-    <!-- Control whether the always on display mode is enabled by default. This value will be used
-         during initialization when the setting is still null. -->
-    <bool name="config_dozeAlwaysOnEnabled">false</bool>
+         Example for a 10px x 10px square top-center cutout:
+                <string ...>M -5,0 L -5,10 L 5,10 L 5,0 Z</string>
+         Example for a 10dp x 10dp square top-center cutout:
+                <string ...>M -5,0 L -5,10 L 5,10 L 5,0 Z @dp</string>
+
+         @see https://www.w3.org/TR/SVG/paths.html#PathData
+         -->
+    <string name="config_mainBuiltInDisplayCutout" translatable="false">M -45,54 a 45,45 0 0 1 90,0 a 45,45 0 0 1 -90,0 Z</string>
+
+    <!-- Like config_mainBuiltInDisplayCutout, but this path is used to report the
+         one single bounding rect per device edge to the app via
+         {@link DisplayCutout#getBoundingRect}. Note that this path should try to match the visual
+         appearance of the cutout as much as possible, and may be smaller than
+         config_mainBuiltInDisplayCutout
+         -->
+    <string name="config_mainBuiltInDisplayCutoutRectApproximation" translatable="false">M -45,0 L 45,0 L 45,108 L -45,108 Z</string>
 
     <!-- The default refresh rate for a given device. Change this value to set a higher default
          refresh rate. If the hardware composer on the device supports display modes with a higher
@@ -276,49 +279,60 @@
          non-zero. -->
     <integer name="config_defaultPeakRefreshRate">120</integer>
 
-    <!-- Not allow to switch to higher refresh rate when (display, ambient) brightness falls into
-         the region defined by the two arrays -->
-    <array name="config_brightnessThresholdsOfPeakRefreshRate">
+    <!-- The display uses different gamma curves for different refresh rates. It's hard for panel
+         vendors to tune the curves to have exact same brightness for different refresh rate. So
+         flicker could be observed at switch time. The issue is worse at the gamma lower end.
+         In addition, human eyes are more sensitive to the flicker at darker environment.
+         To prevent flicker, we only support higher refresh rates if the display brightness is above
+         a threshold.
+         For example, no higher refresh rate if
+             display brightness <= disp0 && ambient brightness <= amb0
+             || display brightness <= disp1 && ambient brightness <= amb1
+         Brightness thresholds are paired with lux thresholds - they both have to be met.
+         A negative brightness or lux value means that only one threshold should be used - e.g. if
+         the brightness value is negative, only the lux threshold is applied. -->
+    <!-- Low zone brightness thresholds in the range [0, 255] -->
+    <integer-array name="config_brightnessThresholdsOfPeakRefreshRate">
         <item>-1</item>
-    </array>
-    <array name="config_ambientThresholdsOfPeakRefreshRate">
+    </integer-array>
+
+    <!-- Low zone lux thresholds -->
+    <integer-array name="config_ambientThresholdsOfPeakRefreshRate">
         <item>-1</item>
-    </array>
+    </integer-array>
 
-    <!-- MMS user agent string -->
-    <string name="config_mms_user_agent" translatable="false">motorolarazr40ultra</string>
-    <!-- MMS user agent profile url -->
-    <string name="config_mms_user_agent_profile_url" translatable="false">http://uaprof.motorola.com/phoneconfig/motov1/Profile/motov1.rdf</string>
-
-    <!-- List supported color modes. -->
-    <array name="config_availableColorModes">
-        <item>0</item> <!-- COLOR_MODE_NATURAL -->     <!-- This uses colorimetric render intents-->
-        <item>1</item> <!-- COLOR_MODE_BOOSTED -->     <!-- This applies a 10% boost using the PCC-->
-        <item>2</item> <!-- COLOR_MODE_SATURATED -->
-        <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->   <!-- This uses enhanced render intents-->
-    </array>
-
-    <!-- Type of the double tap sensor. Empty if double tap is not supported. -->
-    <string name="config_dozeDoubleTapSensorType" translatable="false">org.lineageos.sensor.double_tap</string>
-
-    <!-- Indicates whether device has a power button fingerprint sensor. -->
-    <bool name="config_is_powerbutton_fps">true</bool>
+    <!-- List of biometric sensors on the device, in decreasing strength. Consumed by AuthService
+         when registering authenticators with BiometricService. Format must be ID:Modality:Strength,
+         where: IDs are unique per device, Modality as defined in BiometricAuthenticator.java,
+         and Strength as defined in Authenticators.java -->
+    <string-array name="config_biometric_sensors" translatable="false">
+        <item>0:2:15</item> <!-- ID0:Fingerprint:Strong -->
+    </string-array>
 
     <!-- An array of arrays of side fingerprint sensor properties relative to each display.
          Note: this value is temporary and is expected to be queried directly
          from the HAL in the future. -->
-    <array name="config_sfps_sensor_props" translatable="false">
+    <array name="config_sfps_sensor_props">
         <item>@array/config_sfps_sensor_props_0</item>
         <item>@array/config_sfps_sensor_props_1</item>
     </array>
 
-    <array name="config_sfps_sensor_props_0" translatable="false">
+    <!-- Indicates whether device has a power button fingerprint sensor. -->
+    <bool name="config_is_powerbutton_fps">true</bool>
+
+    <!-- The display cutout configs for secondary built-in display. -->
+    <string name="config_secondaryBuiltInDisplayCutout" translatable="false">M 483,930 a 45,45 0 0 1 90,0 a 45,45 0 0 1 -90,0 M 596,920 a 106,106 0 0 1 212,0 a 106,106 0 0 1 -212,0 M 812,920 a 106,106 0 0 1 212,0 a 106,106 0 0 1 -212,0 Z @left</string>
+    <string name="config_secondaryBuiltInDisplayCutoutRectApproximation" translatable="false">M 480,800 L 1056,800 L 1056,1068 L 480,1068 Z @left</string>
+    <bool name="config_maskSecondaryBuiltInDisplayCutout">true</bool>
+
+    <array name="config_sfps_sensor_props_0">
         <item>"local:4630947043778501762"</item> <!--item>displayId</item-->
         <item>1080</item> <!--item>sensorLocationX</item-->
         <item>850</item> <!--item>sensorLocationY</item-->
         <item>110</item> <!--item>sensorRadius</item-->
     </array>
-    <array name="config_sfps_sensor_props_1" translatable="false">
+
+    <array name="config_sfps_sensor_props_1">
         <item>"local:4630947043778501763"</item> <!--item>displayId</item-->
         <item>1056</item> <!--item>sensorLocationX</item-->
         <item>20</item> <!--item>sensorLocationY</item-->
