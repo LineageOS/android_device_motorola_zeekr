@@ -1,52 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2022 The LineageOS Project
+     SPDX-FileCopyrightText: The LineageOS Project
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
-    <!-- Radius of the software rounded corners. -->
-    <dimen name="rounded_corner_radius">75.0px</dimen>
-    <dimen name="rounded_corner_radius_bottom">75.0px</dimen>
-    <dimen name="rounded_corner_radius_top">75.0px</dimen>
+    <!-- Height of the status bar in portrait.
+         Do not read this dimen directly. Use {@link SystemBarUtils#getStatusBarHeight} instead.
+         -->
+    <dimen name="status_bar_height_portrait">90px</dimen>
 
-    <!-- Height of the status bar in portrait. The height should be
-         Max((status bar content height + waterfall top size), top cutout size) -->
-    <dimen name="status_bar_height_portrait">90.0px</dimen>
-    <dimen name="status_bar_height_landscape">24.0dip</dimen>
+    <!-- Height of the status bar in landscape.
+         Do not read this dimen directly. Use {@link SystemBarUtils#getStatusBarHeight} instead.
+         -->
+    <dimen name="status_bar_height_landscape">24dp</dimen>
 
-    <dimen name="status_bar_padding_top_portrait">10.0px</dimen>
+    <!-- Default radius of the software rounded corners. -->
+    <dimen name="rounded_corner_radius">75px</dimen>
 
-    <!-- Minimum screen brightness setting allowed by power manager.
-         -2 is invalid so setting will resort to int value specified above.
-         Set this to 0.0 to allow screen to go to minimal brightness.
-         The user is forbidden from setting the brightness below this level. -->
-    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.026506964</item>
+    <!-- Radius of the software rounded corners at the top of the display in its natural
+        orientation. If zero, the value of rounded_corner_radius is used. -->
+    <dimen name="rounded_corner_radius_top">75px</dimen>
 
-    <!-- Maximum screen brightness allowed by the power manager.
-         -2 is invalid so setting will resort to int value specified above.
-         Set this to 1.0 for maximum brightness range.
-         The user is forbidden from setting the brightness above this level. -->
-    <item name="config_screenBrightnessSettingMaximumFloat" format="float" type="dimen">1.0</item>
-
-    <!-- Default screen brightness setting set.
-         -2 is invalid so setting will resort to int value specified above.
-         Must be in the range specified by minimum and maximum. -->
-    <item name="config_screenBrightnessSettingDefaultFloat" format="float" type="dimen">0.38188976</item>
-
-    <!-- Location on the screen of the center of the fingerprint sensor. For devices with under
-     display fingerprint sensors, this directly corresponds to the fingerprint sensor's location.
-     For devices with sensors on the back of the device, this corresponds to the location on the
-     screen directly in front of the sensor.
-     By default, this is set to @null to use the horizontal center of the screen. -->
-    <dimen name="physical_fingerprint_sensor_center_screen_location_x">1080px</dimen>
-
-    <!-- Location on the screen of the center of the fingerprint sensor. For devices with under
-     display fingerprint sensors, this directly corresponds to the fingerprint sensor's location.
-     For devices with sensors on the back of the device, this corresponds to the location on the
-     screen directly in front of the sensor. -->
-    <dimen name="physical_fingerprint_sensor_center_screen_location_y">960px</dimen>
-
-    <!-- Location on the screen of the center of the physical power button. This is a reasonable
-    default that should be overridden by device-specific overlays. -->
-    <dimen name="physical_power_button_center_screen_location_y">960px</dimen>
+    <!-- Radius of the software rounded corners at the bottom of the display in its natural
+        orientation. If zero, the value of rounded_corner_radius is used. -->
+    <dimen name="rounded_corner_radius_bottom">75px</dimen>
 </resources>
