@@ -7,22 +7,22 @@ vendor/etc/acdbdata/waipio_mtp/MTP_workspaceFile.qwsp
 # ADSP Modules
 vendor/lib/rfsa/adsp/bm2n08.bin
 vendor/lib/rfsa/adsp/bm2n09.bin
+vendor/lib/rfsa/adsp/capi_elus_rx.so
+vendor/lib/rfsa/adsp/capi_elus_tx.so
 vendor/lib/rfsa/adsp/libadsp_jpege_skel.so
 vendor/lib/rfsa/adsp/libapn_dsp_skel.so
 vendor/lib/rfsa/adsp/libbitml_nsp_skel.so
 vendor/lib/rfsa/adsp/libbitml_nsp_v2_skel.so
 vendor/lib/rfsa/adsp/libcamera_nn_skel.so
 vendor/lib/rfsa/adsp/libhdr_skel.so
-vendor/lib/rfsa/adsp/libmctfengine_skel.so
-vendor/lib/rfsa/adsp/capi_elus_rx.so
-vendor/lib/rfsa/adsp/capi_elus_tx.so
 vendor/lib/rfsa/adsp/libhme_dsp_skel.so
+vendor/lib/rfsa/adsp/libmctfengine_skel.so
 
 # Camera
 vendor/bin/hw/vendor.qti.camera.provider@2.7-service_64
-vendor/etc/init/vendor.qti.camera.provider@2.7-service_64.rc
 vendor/etc/eva/facedetection/model3.dat
 vendor/etc/face3d/qcnn_concat_file_model-0324_2_encrypted
+vendor/etc/init/vendor.qti.camera.provider@2.7-service_64.rc
 vendor/lib64/camera/arcsoft_dc_calibration_u.bin
 vendor/lib64/camera/com.qti.ois.mot_dw9784.so
 vendor/lib64/camera/fdconfigpreview.bin
@@ -39,9 +39,6 @@ vendor/lib64/com.qualcomm.mcx.linearmapper.so
 vendor/lib64/com.qualcomm.mcx.policy.mfl.so
 vendor/lib64/com.qualcomm.mcx.policy.xr.so
 vendor/lib64/com.qualcomm.qti.mcx.usecase.extension.so
-vendor/lib64/zeekr_arcsoft_portrait_super_night_se_raw.bin
-vendor/lib64/zeekr_arcsoft_super_night_raw.bin
-vendor/lib64/zeekr_arcsoft_super_night_se_raw.bin
 vendor/lib64/hw/camera.qcom.so
 vendor/lib64/hw/com.qti.chi.override.so
 vendor/lib64/libAncHumanSegFigureFusion.so
@@ -123,6 +120,9 @@ vendor/lib64/libubifocus.so
 vendor/lib64/libvidhance.so
 vendor/lib64/vendor.qti.hardware.camera.aon@1.0-service-impl.so
 vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so
+vendor/lib64/zeekr_arcsoft_portrait_super_night_se_raw.bin
+vendor/lib64/zeekr_arcsoft_super_night_raw.bin
+vendor/lib64/zeekr_arcsoft_super_night_se_raw.bin
 
 # Camera - camx
 vendor/lib64/camx.device@3.2-impl.so
@@ -291,29 +291,29 @@ vendor/lib64/com.qti.feature2.swmfsr.so
 vendor/firmware/mot_dw9784.prog
 
 # Camera - sensor
-vendor/lib64/camera/com.qti.sensor.mot_hi1336_cli.so
 vendor/lib64/camera/com.qti.sensor.mot_hi1336.so
-vendor/lib64/camera/com.qti.sensor.mot_imx563_cli.so
+vendor/lib64/camera/com.qti.sensor.mot_hi1336_cli.so
 vendor/lib64/camera/com.qti.sensor.mot_imx563.so
+vendor/lib64/camera/com.qti.sensor.mot_imx563_cli.so
 vendor/lib64/camera/com.qti.sensor.mot_ov32b40.so
 
 # Camera - sensormodule
 vendor/lib64/camera/com.qti.sensormodule.mot_zeekr_hi1336_cli_qtech.bin
 vendor/lib64/camera/com.qti.sensormodule.mot_zeekr_hi1336_qtech.bin
-vendor/lib64/camera/com.qti.sensormodule.mot_zeekr_imx563_cli_sunny_2nd.bin
 vendor/lib64/camera/com.qti.sensormodule.mot_zeekr_imx563_cli_sunny.bin
-vendor/lib64/camera/com.qti.sensormodule.mot_zeekr_imx563_sunny_2nd.bin
+vendor/lib64/camera/com.qti.sensormodule.mot_zeekr_imx563_cli_sunny_2nd.bin
 vendor/lib64/camera/com.qti.sensormodule.mot_zeekr_imx563_sunny.bin
+vendor/lib64/camera/com.qti.sensormodule.mot_zeekr_imx563_sunny_2nd.bin
 vendor/lib64/camera/com.qti.sensormodule.mot_zeekr_ov32b40_sunny.bin
 
 # Camera - tuned
 vendor/lib64/camera/com.qti.tuned.default.bin
-vendor/lib64/camera/com.qti.tuned.mot_zeekr_hi1336_cli.bin
 vendor/lib64/camera/com.qti.tuned.mot_zeekr_hi1336.bin
-vendor/lib64/camera/com.qti.tuned.mot_zeekr_imx563_cli_2nd.bin
-vendor/lib64/camera/com.qti.tuned.mot_zeekr_imx563_cli.bin
-vendor/lib64/camera/com.qti.tuned.mot_zeekr_imx563_2nd.bin
+vendor/lib64/camera/com.qti.tuned.mot_zeekr_hi1336_cli.bin
 vendor/lib64/camera/com.qti.tuned.mot_zeekr_imx563.bin
+vendor/lib64/camera/com.qti.tuned.mot_zeekr_imx563_2nd.bin
+vendor/lib64/camera/com.qti.tuned.mot_zeekr_imx563_cli.bin
+vendor/lib64/camera/com.qti.tuned.mot_zeekr_imx563_cli_2nd.bin
 vendor/lib64/camera/com.qti.tuned.mot_zeekr_ov32b40.bin
 
 # Charger firmware
@@ -367,16 +367,16 @@ system_ext/bin/motsettings
 system_ext/priv-app/MotorolaSettingsProvider/MotorolaSettingsProvider.apk
 
 # Moto Permissions
-product/etc/permissions/com.motorola.camera3.xml:vendor/etc/permissions/com.motorola.camera3.xml
 product/etc/permissions/com.motorola.camera3.content.ai.xml:vendor/etc/permissions/com.motorola.camera3.content.ai.xml
-product/etc/permissions/com.motorola.camera3.zeekr.xml:vendor/etc/permissions/com.motorola.camera3.zeekr.xml
 product/etc/permissions/com.motorola.camera3.lens.xml:vendor/etc/permissions/com.motorola.camera3.lens.xml
+product/etc/permissions/com.motorola.camera3.xml:vendor/etc/permissions/com.motorola.camera3.xml
+product/etc/permissions/com.motorola.camera3.zeekr.xml:vendor/etc/permissions/com.motorola.camera3.zeekr.xml
 product/etc/permissions/com.motorola.moto-uirefresh.xml
 
 # NFC - configs
-vendor/etc/libnfc-nci_PN560.conf
 vendor/etc/libnfc-PN560.conf
 vendor/etc/libnfc-SN220-UICC.conf
+vendor/etc/libnfc-nci_PN560.conf
 
 # NFC firmware
 vendor/lib64/libpn560_fw.so
@@ -415,8 +415,8 @@ vendor/etc/sensors/als_comp_tf_csot_c8_dc_on.config
 vendor/etc/sensors/config/bmp5_0.json
 vendor/etc/sensors/config/lsm6dso_0.json
 vendor/etc/sensors/config/lsm6dso_1.json
-vendor/etc/sensors/config/mmc56x3x_0_dvt1b.json
 vendor/etc/sensors/config/mmc56x3x_0.json
+vendor/etc/sensors/config/mmc56x3x_0_dvt1b.json
 vendor/etc/sensors/config/mot_camgest.json
 vendor/etc/sensors/config/mot_chopchop.json
 vendor/etc/sensors/config/mot_chopchop_closed.json
