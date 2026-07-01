@@ -76,12 +76,17 @@ blob_fixups: blob_fixups_user_type = {
         'libbase-v33.so',
     ),
     (
+        'vendor/bin/hw/vendor.qti.camera.provider@2.7-service_64',
+        'vendor/lib64/camx.device@3.4-ext-impl.so',
+        'vendor/lib64/camx.device@3.5-ext-impl.so',
+        'vendor/lib64/camx.device@3.6-ext-impl.so',
+        'vendor/lib64/camx.provider@2.4-external.so',
         'vendor/lib64/camx.provider@2.4-impl.so',
+        'vendor/lib64/camx.provider@2.4-legacy.so',
+        'vendor/lib64/camx.provider@2.5-external.so',
         'vendor/lib64/camx.provider@2.5-legacy.so',
         'vendor/lib64/camx.provider@2.6-legacy.so',
         'vendor/lib64/camx.provider@2.7-legacy.so',
-        'vendor/lib64/camx.device@3.5-ext-impl.so',
-        'vendor/lib64/camx.device@3.6-ext-impl.so',
     ): blob_fixup().replace_needed(
         'libtinyxml2.so', 'libtinyxml2-v34.so'
     ),
