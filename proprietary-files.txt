@@ -345,7 +345,6 @@ system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
 system_ext/framework/com.android.hotwordenrollment.common.util.jar
 
 # Input
-vendor/usr/idc/fts_ts.idc
 vendor/usr/idc/uinput-fpc.idc
 vendor/usr/keylayout/uinput-fpc.kl
 

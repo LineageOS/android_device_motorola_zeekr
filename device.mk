@@ -72,6 +72,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     init.mmi.overlay.rc
 
+# Input
+PRODUCT_PACKAGES += \
+    idc_data_zeekr
+
 # NFC
 PRODUCT_PACKAGES += \
     android.hardware.nfc-service.nxp \
