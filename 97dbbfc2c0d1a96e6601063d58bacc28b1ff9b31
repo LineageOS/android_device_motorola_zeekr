@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "898d5291_ae2d55c8",
+        "filename": "resource-overlay/device/DeviceAperture/res/values/config.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 19979
+      },
+      "writtenOn": "2026-08-24T02:30:19Z",
+      "side": 1,
+      "message": "This can be dropped, it\u0027s already in sm8475-common LineageApertureApp RRO",
+      "revId": "97dbbfc2c0d1a96e6601063d58bacc28b1ff9b31",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
